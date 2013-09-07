@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NFCMessage.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+  <phone:Pivot Title="windows.developer NFC messages demo" >
+    <phone:Pivot.Items>
+      <phone:PivotItem Header="Publish">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Button x:Name="btnPublish" Grid.Row="0" Click="btnPublish_Click">Nachricht veröffentlichen</Button>
+          <Button x:Name="btnStopPublic" Grid.Row="1" Click="btnStopPublic_Click" >Veröffentlichung beenden</Button>
+        </Grid>
+      </phone:PivotItem>
+      <phone:PivotItem Header="Subscribe">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Button x:Name="btnSubscribe" Grid.Row="0" Click="btnSubscribe_Click">Nachricht abonieren</Button>
+          <Button x:Name="btnUnsubscribe" Grid.Row="1" Click="btnUnsubscribe_Click" >Nachrichtenabo beenden</Button>
+        </Grid>
+      </phone:PivotItem>
+      <phone:PivotItem Header="WritableTag">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Button x:Name="btnSubscribeWritable" Grid.Row="0" Click="btnSubscribeWritable_Click" >WriteableTag Abonieren</Button>
+          <StackPanel Grid.Row="1" Margin="10">
+            <TextBlock>Bitte geben Sie eine URL ein:</TextBlock>
+            <TextBox x:Name="tbUrl" Text="http://dotnetautor.de"></TextBox>
+          </StackPanel>
+          <Button x:Name="btnWriteURI" Grid.Row="2" Click="btnWriteURI_Click" >URI auf Tag Schreiben</Button>
+          <Button x:Name="btnWriteLauch" Grid.Row="3" Click="btnWriteLauch_Click" >Anwendung starten auf Tag schreiben</Button>
+        </Grid>
+      </phone:PivotItem>
+      <phone:PivotItem Header="WindowsMime">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Button x:Name="btnWinMime" Grid.Row="0" Click="btnWinMime_Click"  >WindowsMime Abonieren</Button>
+          <Button Grid.Row="1" x:Name="btnWinMimePublish" Click="btnWinMimePublish_Click">text/plain veröffentlichen </Button>
+          <Button Grid.Row="2" x:Name="btnWriteMimePublish" Click="btnWriteMimePublish_Click">text/plain auf Tag schreiben</Button>
+          <TextBox Grid.Row="3" x:Name="tbMime" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="Bitte geben Sie einen Text ein"></TextBox>
+        </Grid> 
+      </phone:PivotItem>
+    </phone:Pivot.Items>
+  </phone:Pivot>
+</phone:PhoneApplicationPage>
