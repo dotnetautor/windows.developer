@@ -173,4 +173,7 @@
   <data name="Err_NotAdvertising" xml:space="preserve">
     <value>You are currently not advertising yourself, i.e., a call to PeerFinder.Start() must proceed FindAllPeersAsync()</value>
   </data>
+  <data name="Msg_EmulatorMode" xml:space="preserve">
+    <value>You cannot run this sample in the emulator because Bluetooth is not enabled. To see the sample working, run it on a Windows Phone 8 device.</value>
+  </data>
 </root>

@@ -28,7 +28,7 @@ namespace App2Aapp {
           ToggleUI(true));
     }
 
-  
+
     private async void btnRefresh_Click(object sender, System.Windows.RoutedEventArgs e) {
       try {
 
@@ -73,6 +73,13 @@ namespace App2Aapp {
     private void BtnSend_OnClick(object sender, RoutedEventArgs e) {
       tbResult.Text += string.Format("<- {0}\r\n", tbMsg.Text);
       _connectionManager.SendMessage(tbMsg.Text);
+
+    }
+
+    private void MainPage_OnLoaded(object sender, RoutedEventArgs e) {
+      if (Microsoft.Devices.Environment.DeviceType == Microsoft.Devices.DeviceType.Emulator) {
+        MessageBox.Show(AppResources.Msg_EmulatorMode, "Warning", MessageBoxButton.OK);
+      }
 
     }
   }

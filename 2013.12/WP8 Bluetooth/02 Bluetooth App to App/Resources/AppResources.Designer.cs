@@ -205,6 +205,15 @@ namespace App2Aapp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You cannot run this sample in the emulator because Bluetooth is not enabled. To see the sample working, run it on a Windows Phone 8 device..
+        /// </summary>
+        public static string Msg_EmulatorMode {
+            get {
+                return ResourceManager.GetString("Msg_EmulatorMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LeftToRight.
         /// </summary>
         public static string ResourceFlowDirection {

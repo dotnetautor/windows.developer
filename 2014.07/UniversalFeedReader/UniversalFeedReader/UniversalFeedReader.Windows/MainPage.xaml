@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="UniversalFeedReader.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UniversalFeedReader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:UniversalFeedReader.ViewModels"
+    mc:Ignorable="d">
+
+  <!--<Page.Resources>
+    <DataTemplate x:Key="FeetItemTemplate">
+      <Border BorderBrush="{StaticResource ListBoxBorderThemeBrush}" BorderThickness="2">
+        <StackPanel Margin="0,15" Width="400">
+          <TextBlock Text="{Binding Title}"  HorizontalAlignment="Left" TextWrapping="Wrap" />
+          <TextBlock Text="{Binding Description}"  HorizontalAlignment="Left" TextWrapping="Wrap" />
+          <TextBlock Foreground="DarkGray" Text="{Binding DatePublished}" />
+        </StackPanel>
+      </Border>
+    </DataTemplate>
+  </Page.Resources>-->
+  
+  <Page.DataContext>
+    <viewModels:FeedReaderViewModel />
+  </Page.DataContext>
+  <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="100"/>
+      <RowDefinition Height="75"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="120"/>
+      <ColumnDefinition Width="244*"/>
+      <ColumnDefinition Width="379*"/>
+    </Grid.ColumnDefinitions>
+    <GridView Grid.Column="1"  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" ItemsSource="{Binding FeedItems}" ItemTemplate="{StaticResource FeedItemTemplate}" Grid.ColumnSpan="2">
+
+    </GridView>
+    <Button Content="Refresh" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="55" Width="225" FontSize="26.667" Command="{Binding RefreshCommand}" />
+    <TextBlock Text="FeedReader Win 8" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="468" FontSize="46"/>
+
+  </Grid>
+</Page>
